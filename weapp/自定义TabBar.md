@@ -1,7 +1,11 @@
-###官方tabBar地址
+# 小程序 - 自定义TabBar
+
+[TOC]
+
+## 官方tabBar地址
     https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
 
-###自定义tabBar
+## 自定义tabBar
     小程序的页面结构分为两种: page 和 component；
     page就是普通的页面， components是小程序为实现模块化而提供的自定义组件。
 - page就是普通的页面， component是小程序为实现模块化而提供的自定义组件
@@ -15,7 +19,8 @@
   ~~~
   js文件的结构和生命周期函数不同，下面是自动生成的page和components代码
 
-> #### page页面的.js代码结构如下:
+### page页面的.js代码结构如下:
+
 ~~~javascript
 Page({
     /** 页面的初始数据 */
@@ -39,7 +44,8 @@ Page({
 })
 ~~~
 
-> #### component页面的.js代码结构如下:
+### component页面的.js代码结构如下:
+
 ~~~javascript
 Component({
   /** 组件的属性列表 */
@@ -54,7 +60,7 @@ Component({
 自定义tabBar中每个 tab 都是一个小程序中定义的 component，只有最外层包裹的是 page，因为page中只能嵌入component，component中也可以嵌入component。
 
 
-
+### 实战
 例如：myapp 程序主界面包含两个 tab：主页和我的，主页又包含两个tab：最热和最新；我的也包含两个tab：电影和音乐。
 1. 程序的主界面，包含了两个tab：home 和 mine，分别对应页面下方的 主页 和 我的。
 要引入自定义组件需要在 myapp.json文件中声明：
@@ -102,7 +108,7 @@ switchTab(e) {
 这里有几个需要注意的点：
 
 - 这里判断相等用了 == 而不是 === ，因为通过 e.currentTarget.dataset.current取到的值是字符串类型的，也就是给 data 设置的值是字符串的0和1，如果用 === 就会判断出错(可以使用强转换)。
-- 控制组件显示隐藏可以用 wx:if 也可以用 hidden。两者是区别是如果用 wx:if ，每次切换tab的时候组件都会重新渲染，生命周期方法会重新调用执行。而用 hidden则不会重新渲染，生命周期函数也不会重新调用。
+- 控制组件显示隐藏可以用 wx:if 也可以用 hidden。**两者是区别是如果用 wx:if ，每次切换tab的时候组件都会重新渲染，生命周期方法会重新调用执行。而用 hidden则不会重新渲染，生命周期函数也不会重新调用。**
 
 2. 主页home，它本身是一个component，又包含了两个component ：最热hot 和 最新new。
 同样需要在home.json中注册这两个组件
