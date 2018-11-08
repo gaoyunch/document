@@ -40,7 +40,7 @@ Page({
     /** 页面上拉触底事件的处理函数 */
     onReachBottom() { },
     /** 用户点击右上角分享 */
-    onShareAppMessage: function () { }
+    onShareAppMessage() { }
 })
 ~~~
 
@@ -60,7 +60,7 @@ Component({
 自定义tabBar中每个 tab 都是一个小程序中定义的 component，只有最外层包裹的是 page，因为page中只能嵌入component，component中也可以嵌入component。
 
 
-### 实战
+### 实战与原理
 例如：myapp 程序主界面包含两个 tab：主页和我的，主页又包含两个tab：最热和最新；我的也包含两个tab：电影和音乐。
 1. 程序的主界面，包含了两个tab：home 和 mine，分别对应页面下方的 主页 和 我的。
 要引入自定义组件需要在 myapp.json文件中声明：
