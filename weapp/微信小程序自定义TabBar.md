@@ -1,6 +1,9 @@
 # 小程序 - 自定义TabBar
+> 更新于2018.11.08
 
 [TOC]
+
+-----
 
 ## 官方tabBar地址
     https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
